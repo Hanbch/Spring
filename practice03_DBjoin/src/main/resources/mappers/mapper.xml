@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.hi.ex.mapper.mapper">
+    
+    <resultMap id="getAuth" type="AuthVO" >
+    	<result property="username" column="username"/>
+    	<result property="AUTHORITY" column="AUTHORITY"/>
+    </resultMap>
+    
+    <resultMap id="getUsers" type="UsersVO" >
+    	<result property="username" column="username"/>
+    	<result property="password" column="password"/>
+    	<result property="enable" column="enable"/>
+    	<collection property="authList" resultMap="getAuth"></collection>
+    </resultMap>
+    
+    <select id="getJoinList" resultMap="getUsers">
+      <![CDATA[
+        	select * from users,authorities
+      ]]>
+   </select>
+    
+</mapper>
