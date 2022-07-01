@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/ajax.js"></script>
+	<script>
+	 $(document).ready(function(){
+			function html(data){
+				var htmls = "";
+				
+				$(data).each(function(idx,d){
+					
+					if(idx <= 10){
+						
+						htmls += "<tr>";
+						htmls += "<td>" + d.bid + "</td>";
+						htmls += "<td><a href=/content_view?bid="+ d.bid +"> " + d.btitle + "</a></td>";
+						htmls += "<td>" + d.bname + "</td>";
+						htmls += "<td>" + d.bdate + "</td>";
+						htmls += "<td>" + d.bhit + "</td>";
+						htmls += "<td><input class='delBtn' id=" + d.bid + "  type='button' value='삭제'></td>";
+						htmls += "</tr>";
+						
+					}
+					
+					
+					
+				});
+				
+				htmls+='<tr>';
+                htmls+='<td colspan="5"> <a href="/write_view">글작성</a> </td>';                         
+                htmls+='</tr>';
+				
+				$("#table").append(htmls);
+			}
+			
+			getListData.list(html);
+			
+			$(document).on("click","#table .delBtn",function(e){
+				
+				
+				
+				$(this).parent().parent().remove();
+				getListData.del($(this).attr('id'));
+				
+				
+				
+			});
+			
+	 });
+	</script>
+</head>
+<body>
+	<table id="table" border="1">
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>이름</th>
+			<th>날짜</th>
+			<th>조회수</th>
+			<th>삭제하기</th>
+		</tr>
+	</table>	
+</body>
+</html>

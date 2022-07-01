@@ -6,41 +6,14 @@
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="/js/board.js"></script>
    <title>list</title>
    <script>
    	$(document).ready(function(){
    		$("#updateForm").submit(function(e){
 			e.preventDefault();
 			
-			let bid = $("#input_bid").val();
-			let bname = $("#input_bname").val();
-			let btitle = $("#input_btitle").val();
-			let bcontent = $("#input_bcontent").val();
-			
-			let form = {
-				bid : bid,
-				bname :bname,
-				btitle : btitle,
-				bcontent : bcontent
-			};
-   			
-	   		$.ajax({ 
-	            type: "PUT", 
-	            url : "/boards/" + bid, 
-	            cashe: false,
-	            contentType:'application/json;charset=utf-8',
-	            data: JSON.stringify(form),
-	            success : function(result) { 
-	
-	            	console.log(result);
-	            	location.href = "/list2";
-	            	//$(location).attr('href', '/list2');
-	                
-	            }, 
-	            error : function(e){ 
-	            		console.log(e);
-	                }	
-            	});
+	   		boardService.modify("/rest_board3.html");
    			
    		});
    	});
