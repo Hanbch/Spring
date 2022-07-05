@@ -54,7 +54,7 @@
 			           $(location).attr('href', '/list2');              
 			    },
 			    error: function (e) {
-			        console.log("error");
+			        console.log(e);
 			    }
 			});
 			

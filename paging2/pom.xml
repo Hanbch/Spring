@@ -5,15 +5,15 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.6.8</version>
+		<version>2.6.9</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>edu.hi</groupId>
 	<artifactId>ex</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>spring_boot_hjs_board_mybatis</name>
-	<description>스프링 마이 바티스 게시판</description>
+	<name>practice02</name>
+	<description>스프링 마이바티스 Board</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
@@ -44,55 +44,31 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
 		<!-- 마이바티스 및 오라클 드라이버 설치-->
-		<dependency>
-			<groupId>org.mybatis.spring.boot</groupId>
-			<artifactId>mybatis-spring-boot-starter</artifactId>
-			<version>2.1.4</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.oracle.database.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		
+      <dependency>
+         <groupId>org.mybatis.spring.boot</groupId>
+         <artifactId>mybatis-spring-boot-starter</artifactId>
+         <version>2.1.4</version>
+      </dependency>
+      
+      <dependency>
+         <groupId>com.oracle.database.jdbc</groupId>
+         <artifactId>ojdbc8</artifactId>
+         <scope>runtime</scope>
+      </dependency>
+	
+	
 		<!-- JSP를 사용하기 위한 라이브러리 추가-->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>            
         </dependency>  
 
-	     <dependency>
+        <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
-        
-        <!-- logging 위한 라이브러리 추가-->
-        <dependency>
-		  <groupId>org.bgee.log4jdbc-log4j2</groupId>
-		  <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
-		  <version>1.16</version>
-		</dependency>	
-		
-		<!-- 스프링 부트에서 스프링 시큐리티 관련 라이브러리 -->
- 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
-		</dependency> 
-		
-		<!-- 스프링 부트에서는  jsp 태그를 지원 하지 않기 때문에 직접 입력 해야야함 -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs</artifactId>
-		</dependency> 
-		
+		<!--                -->
 		
 	</dependencies>
 

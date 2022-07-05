@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,6 +76,25 @@ public class RestBoardController {
 		return entity;		
 	}
 	
+	//post + "/boards"  +  "/"  + 
+	@PostMapping("/")
+	public ResponseEntity<String> rest_write(@RequestBody BoardVO boardVO){
+		
+		log.info("rest_write() .." + boardVO);
+		
+		ResponseEntity<String> entity = null;
+				
+		try {
+				service.register(boardVO);
+				entity = new ResponseEntity<String>("SUCCESS",HttpStatus.OK);			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<String>(e.getMessage(),HttpStatus.BAD_REQUEST);
+		}
+		
+		return entity;		
+	}
 	
 	
 	@GetMapping("/")

@@ -23,6 +23,7 @@ public class EmpController {
 	@Autowired
 	private EmpService service;
 	
+
 	//emp/list
 	@GetMapping("/list")
 	public String list(Model model) {
