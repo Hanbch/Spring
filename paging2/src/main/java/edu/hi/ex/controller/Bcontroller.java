@@ -31,6 +31,7 @@ public class Bcontroller {
 	public String llist2(Model model, Criteria cri) {
 		log.info("List()..");
 		
+		//amount(10)개씩 List를 가져오는 메서드 전달 파라미터로는 pageNum와 amount를 멤버변수로 가지고있는 criteria 객체 전달 
 		model.addAttribute("list",service.getListWithPage(cri));
 		
 		int total = service.getTotal();

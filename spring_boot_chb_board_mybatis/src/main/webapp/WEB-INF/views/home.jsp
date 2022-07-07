@@ -13,11 +13,11 @@
 	
 	<h1>메인페이지</h1>
 	
-	<sec:authorize access="isAnonymous()">
+	<sec:authorize access="isAnonymous()"><!-- id가 익명일경우-->
 	   <p><a href="<c:url value="/login/loginForm" />">로그인</a></p>
 	</sec:authorize>
 	
-	<sec:authorize access="isAuthenticated()">
+	<sec:authorize access="isAuthenticated()"><!-- 로그인이 돼있는경우 -->
 	   <form:form action="${pageContext.request.contextPath}/logout" method="POST">
 	       <input type="submit" value="로그아웃" />
 	   </form:form>
@@ -30,5 +30,10 @@
 	    [<a href="<c:url value="/member/member" />">멤버 홈</a>]
 	    [<a href="<c:url value="/admin/adminHome" />">관리자 홈</a>]
 	</h3>
+	
+	<p>principal: <sec:authentication property="principal"/></p>
+	<p>principal: <sec:authentication property="principal.username"/></p>
+	
+	
 </body>
 </html>

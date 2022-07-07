@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import edu.hi.ex.security.CustomUserDetailsService;
 
-//시뷰리티 설정 클래스 만들기
+//시큐리티 설정 클래스 만들기
 @Configuration //이 클래스는 설정파일인것을 알려주고, 부모가 @Component  + 설정
 @EnableWebSecurity //스프링 시큐리티 필터가 스프링 필터체인에 등록됨
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -32,14 +32,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 		
 		http.authorizeHttpRequests()
-			.antMatchers("/user/**").hasAnyRole("USER,ADMIN")
-			.antMatchers("/member/**").hasAnyRole("MEMBER,ADMIN")
+			.antMatchers("/user/**").hasAnyRole("USER","ADMIN")
+			.antMatchers("/member/**").hasAnyRole("MEMBER","ADMIN")
 			.antMatchers("/admin/**").hasAnyRole("ADMIN")
+			.antMatchers("/index").hasAnyRole("USER")
 			.antMatchers("/**").permitAll();
 		
-		//스프링 시쿠리티에서 제공하는 기본 로그인 폼을 사용하겠다.
-		http.formLogin();
-			
+		//스프링 시큐리티에서 제공하는 기본 로그인 폼을 사용하겠다.
+		http.formLogin()
+			.loginPage("/login")
+			.defaultSuccessUrl("/");//로그인 성공시 연결되는 url설정
+			//.permitAll();
 		
 	}
 	
