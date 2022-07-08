@@ -11,6 +11,7 @@ import edu.hi.ex.page.Criteria;
 import edu.hi.ex.vo.BoardVO;
 import edu.hi.ex.vo.DeptVO;
 import edu.hi.ex.vo.EmpDeptVO;
+import edu.hi.ex.vo.EmpVO;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -32,6 +33,12 @@ public class EmpServiceImpl implements Empservice{
 	public List<DeptVO> getEmpDeptList2() {
 		
 		return empMapper.getEmpDeptList2();
+	}
+
+	@Override
+	public List<EmpVO> getEmpList() {
+		log.info("getEmpList..");
+		return empMapper.getEmpList();
 	}
 
    

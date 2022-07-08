@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import edu.hi.ex.service.Empservice;
 import edu.hi.ex.vo.DeptVO;
@@ -28,6 +29,8 @@ public class EmpController{
 		return "empList";
 		
 	}
+	
+	
 	
 	@GetMapping("/list2")
 	public String list2(Model model) {

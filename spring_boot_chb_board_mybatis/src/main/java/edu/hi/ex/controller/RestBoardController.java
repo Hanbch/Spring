@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.hi.ex.service.BoardService;
+import edu.hi.ex.service.Empservice;
 import edu.hi.ex.vo.BoardVO;
+import edu.hi.ex.vo.DeptVO;
 import lombok.extern.slf4j.Slf4j;
 
 //1.제이슨이로 서비스하기
@@ -28,11 +30,21 @@ public class RestBoardController{
 	@Autowired
 	private BoardService service;
 	
+	@Autowired
+	private Empservice empservice;
+	
 	@GetMapping("/list")
 	public List<BoardVO> list(Model model){
 		log.info("list()..");
 		
 		return service.getList();
+	}
+	
+	@GetMapping("/list2")
+	public List<DeptVO> list2(Model model){
+		log.info("list2()..");
+		
+		return empservice.getEmpDeptList2();
 	}
 	
 	@GetMapping("/{bid}")//변수화해서 url에 입력

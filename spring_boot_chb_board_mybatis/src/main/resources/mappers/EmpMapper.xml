@@ -10,6 +10,12 @@
        ]]>
     </select>
     
+    <select id="getEmpList" resultType="EmpVO">
+       <![CDATA[
+           select * from emp
+       ]]>
+    </select>
+    
     <!-- emp, dept join --> 
     <resultMap id="empMap" type="EmpVO">
       <id property="empno" column="empno"/><!-- primary key는id태그로 지정 -->
